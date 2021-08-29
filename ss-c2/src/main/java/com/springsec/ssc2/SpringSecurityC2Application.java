@@ -1,16 +1,15 @@
-package com.springsec.ssc1;
+package com.springsec.ssc2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.springsec.ssc1"})
 
-public class Application {
+public class SpringSecurityC2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class) ;
+		SpringApplication.run(SpringSecurityC2Application.class) ;
 
 	}
 
