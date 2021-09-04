@@ -89,6 +89,14 @@ public interface UserDetailsManager extends UserDetailsService {
 * But it can also manage Users ( like : user creation , updation , activation .. )
 * There are some standard implementation of UserDetailsManager .
 	* `JDBCUserDetailsManager` is one such standard implementation. We can use it to fire up a pre configured userDetailsManager. Pros: It is create a UserDetailsManager without any other dependency to JPA, Hibernate etc, it can just start  Cons: One needs to creat ethe tables,schemas as per the specification , if your own table structures for User is different to need to change the queries.. 
+	* `InMemoryUserDetailsManager` is another such implementation of UserDetailsManager 
+
+
+in Summary the whole class hierarchy loos like 
+
+![image](https://user-images.githubusercontent.com/8110582/132100852-e6135e50-8af5-4d28-aadb-d3fc4088e7e4.png)
+
+
 
 <br>
 <br>
