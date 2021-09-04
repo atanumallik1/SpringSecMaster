@@ -1,12 +1,12 @@
 # Chapter 3
 
-* Starter Project.
 
 
 ## Important Notes
-* We shall discuss the following classes in more details
-*	`PasswordEncoder`
-* 	`UserDetailsManager` 
+We shall discuss the following topics in more details
+*	UserDetailsService
+* 	UserDetailsManager
+*   JdbcUserDetailsManager
 
 
 ## Important classes 
@@ -96,6 +96,12 @@ in Summary the whole class hierarchy loos like
 
 ![image](https://user-images.githubusercontent.com/8110582/132100852-e6135e50-8af5-4d28-aadb-d3fc4088e7e4.png)
 
+
+## JDBCUserDetailsManager
+* `JdbcUserDetailsManager` is a `UserDetailsManager` , which means it is  also a `UserDetailsService`
+* `JdbcUserDetailsManager` needs a datasource. Following approaches are possible to pass a datasource 
+	*	As bean (In this example)
+	*   As SpringBootProperties [ jdbc dependency is needed ??]. : refer to Chapter 2
 
 
 <br>

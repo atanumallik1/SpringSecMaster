@@ -18,5 +18,7 @@
   	<module>template</module>
   	<module>ss-c1</module>
   	<module>ss-c2</module>
+	<module>ss-c3</module>
+
   </modules>
 </project>
