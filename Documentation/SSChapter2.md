@@ -1,6 +1,7 @@
 # Chapter 2
 
-* Starter Project.
+* This Project explains the following concepts 
+	* Override the default implementation of UserDefault service with `````` 
 
 
 ## Important Notes
