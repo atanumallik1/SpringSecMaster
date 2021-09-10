@@ -41,11 +41,13 @@ The above picture represents the `FilterChain` flow; there can be multiple filte
 
 The filters in the filterchain are called in specific order . It is possible to introduce custom filter at specific position in the filter chain .
 
-
+![image](images/chapter5/FC3.png)
+In this example we shall replace the BasicAuthenticationFilter with CustomAuthenticationFilter
 
 
 ## What we do in this demo 
-* We want to configure a `CustomFilter` for our application  
+* We want to authenticate a user in our app if someone passes `abcde` in `authorization` header.
+* As this is not a standard authentication flow , We want to configure a `CustomFilter` for our application  which will enable us to do it. 
 
 ## How 
 
