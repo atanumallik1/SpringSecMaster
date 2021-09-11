@@ -21,7 +21,9 @@
 		<module>ss-c1</module>
 		<module>ss-c2</module>
 		<module>ss-c3</module>
-		<module>ss-c4</module>
-		<module>ss-c5</module>
+		<module>ss-s4</module>
+		<module>ss-s5</module>
+		<module>ss-c6</module>
+
 	</modules>
 </project>
