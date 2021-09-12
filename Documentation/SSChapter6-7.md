@@ -1,12 +1,16 @@
 # Chapter 6 - 7
 
-## Learn about multiple authentication filter
+## Learn about 
+* Introducing Multiple Authentications : 2 Phase Auth + Authorization code based 
+* Configuring multiple Authentication Filters 
+* Configuring an AuhenticationFilter with 2 phase authentication 
+* Configuring Authentication fiter. for specific end point of teh application  
+* Issuing authorization code and related flow 
+* End of authentication : setting Authentication in the context security
 
-
-## Backgorund
 
 ## Prerequisite 
-* MySql DB with table for `user` and `otp` 
+* MySql DB with table for `user` and `otp` <br>
 ![image](images/Chapter6/otp.png)
 ![image](images/Chapter6/User.png)
  
@@ -37,3 +41,4 @@ We want to enable the following flow.
 		![image](images/Chapter6/L3.png)
 
  
+## Backgorund / Concepts 
