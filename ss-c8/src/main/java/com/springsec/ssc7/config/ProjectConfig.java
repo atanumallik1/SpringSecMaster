@@ -66,5 +66,15 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 		return new UsernamePasswordAuthFilter();
 	}
 
+	@Bean
+	public InitializingBean initializingBean() {
+        // Security contecxt will be available to all threads in this application if the mode 
+		// is SecurityContextHolder.MODE_INHERITABLETHREADLOCAL
+		return () -> {
+ 
+			SecurityContextHolder.setStrategyName(SecurityContextHolder.MODE_INHERITABLETHREADLOCAL);
+		};
+
+	}
 
 }
