@@ -26,10 +26,6 @@ OCTA is one authorization server
 * Token URL:  /oauth/token
 *  
 
-## Backgorund
-
-## What we do in this demo 
-
 
 
 Token Url:
