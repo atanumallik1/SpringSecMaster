@@ -19,3 +19,24 @@ Response :
     "scope": "read"
 }
 ````
+
+
+# OAuth 2.0 
+
+**Actors** <br>
+* User 
+* Client 
+* Authorization Server
+* Resource Server
+
+
+## Learn about Authorization Server
+* Component who is aware of the users 
+* To manage users Authorization server might need a data base , in memory Data etc 
+
+OCTA is one authorization server 
+
+## Backgorund
+
+## What we do in this demo 
+
