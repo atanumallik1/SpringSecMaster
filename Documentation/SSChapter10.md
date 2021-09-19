@@ -21,7 +21,7 @@ By specifying the supported origins at the handler level
 ````java
     @PostMapping("/test")
 	@ResponseBody
-	@CrossOrigin("*") // we can pass allowable origins http:localhost://, or simpley * 
+	@CrossOrigin("*") // we can pass allowable origins http:localhost://, or simply * 
 	public String test() {
 		System.out.println(":(");
 		return "TEST!" ;
