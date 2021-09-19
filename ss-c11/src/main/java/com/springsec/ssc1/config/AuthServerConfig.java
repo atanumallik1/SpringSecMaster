@@ -32,7 +32,21 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory().withClient("client1").scopes("read").secret("secret1").authorizedGrantTypes("password");
+		clients.inMemory().withClient("client1")
+		                  .scopes("read")
+		                  .secret("secret1")
+		                  .authorizedGrantTypes("password")
+		                  .and()
+		                  .withClient("client2")
+		                  .scopes("read")
+		                  .secret("secret2")
+		                  .authorizedGrantTypes("authorization_code") 
+		                  .redirectUris("http://localhost:8080/redirect");
+		                  
+		                  
+		                  
 
 	}
+	
+	
 }
