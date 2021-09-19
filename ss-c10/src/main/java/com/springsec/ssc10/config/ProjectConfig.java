@@ -14,7 +14,9 @@ public class ProjectConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable(); // Only for Test Do not do this in real life
 		http.authorizeRequests().anyRequest().permitAll() ;
 		
-
+		// Cors Configuration settings 
+		http.cors(new CustomCorsConfig());
+		
 	}
 
 }

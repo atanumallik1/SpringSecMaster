@@ -29,6 +29,8 @@
 		<module>ss-c8</module>
 		<module>ss-c9</module>
 		<module>ss-c10</module>
+		<!-- User a different parent pom for Spring Cloud conflict -->
+		<module>ss-c11</module>
 
 	</modules>
 </project>
