@@ -22,7 +22,7 @@
 * Some of teh grant types 
     *   password --> not recommended [ client is aware of the user's credentials ]
     *   authorization_code / pkce ---> User directly passes teh credentials t Auth Server, client is not aware 
-    *   client Credential
+    *   client Credential --> no user here
     *   refresh token
     *   implicit -> Obsolete
 
@@ -80,7 +80,7 @@ This flow consists of  2 parts
 
 **Note**
 *   In this case the client does not know about user's credentials , as user directly gives it to Authorization Server
-*  On success, the Client wants a `code` back to it. I can also be PKCE token as well.   
+*  On success, the Client wants a authorization `code` back to it. I can also be PKCE token as well.   
 _localhost:8080/oauth/authorize?response_type=**code**&**client_id**=client2&scope=read_
 
 * Now the `user` needs to be authenticated   by the `AuthenticationServer`  
