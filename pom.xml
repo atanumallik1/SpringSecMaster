@@ -25,12 +25,14 @@
 		<module>ss-s5</module>
 		<module>ss-c6</module>
 		<module>ss-c7</module>
-		<!-- //Partial  -->
+		<!-- //Partial -->
 		<module>ss-c8</module>
 		<module>ss-c9</module>
 		<module>ss-c10</module>
 		<!-- User a different parent pom for Spring Cloud conflict -->
 		<module>ss-c11</module>
+		<module>ss-c12</module>
+
 
 	</modules>
 </project>
