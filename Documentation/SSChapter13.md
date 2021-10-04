@@ -20,10 +20,12 @@ The _AccessToken_ can be
 ## How does the Resource Server validate the Access Token
 * The Authorization server Issues an _AccessToken_
 * The _ResourceServer_ gets teh _AccessToken_ ; How does the Resource Server know if the Access Token is valid / invalid? 
+
 The answer depends on the type of Token .
 
     * For Opaque Token : 
-        *   Simplest approach is that the Resource Server calls the _AuthorizationServer_ to check the Aceess token 
+        *   Simplest approach is that the Resource Server calls the _AuthorizationServer_ to check the Aceess token . the URL for token validation is _/oauth/check_token?token=_
+        *   User a blackboarding approach : use commn DB bewteen the Resource Server and the Autheorization server 
     * For JWT Token
 
 ## What we do in this demo 
