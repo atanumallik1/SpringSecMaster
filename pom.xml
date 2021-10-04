@@ -32,6 +32,8 @@
 		<!-- User a different parent pom for Spring Cloud conflict -->
 		<module>ss-c11</module>
 		<module>ss-c12</module>
+		<module>ss-c13</module>
+		
 
 
 	</modules>
