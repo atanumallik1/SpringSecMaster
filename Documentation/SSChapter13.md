@@ -26,6 +26,7 @@ The answer depends on the type of Token .
     * For Opaque Token : 
         *   Simplest approach is that the Resource Server calls the _AuthorizationServer_ to check the Aceess token . the URL for token validation is _/oauth/check_token?token=_
         *   User a blackboarding approach : use commn DB bewteen the Resource Server and the Autheorization server 
+        * Bth Resource Server and Auth Server are same application [ not a real life scenario ]
     * For JWT Token
 
 ## What we do in this demo 
