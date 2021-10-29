@@ -36,5 +36,19 @@ The answer depends on the type of Token .
         
         
     * For JWT Token
+    		* The token can be decrypted using a key known to the resource server 
+    		* We ensure teh validity of the token using its signature 
+    		* The token contains relevant data 
+    		
+## Opaque vs non opaque token 
+What this  https://developer.okta.com/blog/2020/08/07/spring-boot-remote-vs-local-tokens 
+
+As per OAuth specification , oAuth access tokens are Opaque, but many OAuth Provider support JWT 
+JWT tokens can be validated locally ; Opaque tokens needs to be validated remotely 
+
+
+
+
+   		
 
 ## What we do in this demo 
