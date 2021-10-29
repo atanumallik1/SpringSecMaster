@@ -13,8 +13,13 @@ OAuth 2.0 is a specification to obtain AccessToken from the authorization Server
 __OAuth 2 is a framework for Authentication ; JWT is a Token Implementation__
 
 The _AccessToken_ can be 
-* Opaque : does not contain any other information ; it just like a password 
+* Opaque : does not contain any other information ; it just like a password . For Example _1a08630d-eef7-4bbd-b922-41c3901a1037_
+	*	This is like a string 
+	*   It is called Opaque because, it does not contain any other information 
+	*	When Resource Server gets the token, it needs to do something additional to verify if the token is valid
 * non Opaque : Contains Information  ( for example: JWT)
+	*	They contain more information 
+	* 	They are encrypted and signed using a key in the Authoirzation Server, resource server can decrypt it directly and verify the authenticity
 
 
 ## How does the Resource Server validate the Access Token
@@ -24,9 +29,12 @@ The _AccessToken_ can be
 The answer depends on the type of Token .
 
     * For Opaque Token : 
-        *   Simplest approach is that the Resource Server calls the _AuthorizationServer_ to check the Aceess token . the URL for token validation is _/oauth/check_token?token=_
-        *   User a blackboarding approach : use commn DB bewteen the Resource Server and the Autheorization server 
-        * Bth Resource Server and Auth Server are same application [ not a real life scenario ]
+        *   Simplest approach is that the Resource Server calls the _AuthorizationServer_ to check the Access token . the URL for token validation is _/oauth/check_token?token=<token>_
+        *   Using a blackboarding approach : use common DB between the Resource Server and the Authorization server ( however a shared DB might be a anti pattern )
+        * Both Resource Server and Auth Server are same application [ not a real life scenario ; only for theoritical exercise]
+        
+        
+        
     * For JWT Token
 
 ## What we do in this demo 
