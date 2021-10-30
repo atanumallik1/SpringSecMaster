@@ -14,36 +14,31 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 @Configuration
 @EnableAuthorizationServer
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
-	@Autowired
-	private UserDetailsService uds;
+	
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	@Autowired
 	private PasswordEncoder pe;
+	@Autowired
+	private UserDetailsService uds;
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		// TODO Auto-generated method stub
-		super.configure(endpoints);
 		endpoints.authenticationManager(authenticationManager);
-		endpoints.userDetailsService(uds);
+	    endpoints.userDetailsService(uds);
 	}
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		// TODO Auto-generated method stub
-		super.configure(security);
 		// Following configuration is done to restrict / permit access to introspection
 		// API
 		// i.e
 		// localhost:8080/oauth/check_token?token=44a2d345-c08e-4706-8b01-cba8950735ce
-		security.checkTokenAccess("permitAll()"); // isAuthenticated() / permitAll()
+		security.checkTokenAccess("isAuthenticated()"); // isAuthenticated() / permitAll()
 	}
 
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		// TODO Auto-generated method stub
-		super.configure(clients);
 
 		clients.inMemory().withClient("client1").secret(pe.encode("secret1")).scopes("read")
 				.authorizedGrantTypes("password", "refresh_token").accessTokenValiditySeconds(5000)
