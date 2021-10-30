@@ -1,7 +1,10 @@
 # Chapter 14
 
 ## Learn about Separate Authorization Server and Resource Server and introspection 
-
+In case of Opaque Token ; the Resource server needs to validate the access token. 
+This can happen via 
+*   Blackboarding (using same db by auth server and resource server )
+*   by calling token introspection   URL from the auth server   ; we shall use this approach in this example 
 
 ## Authorization Server Config Details 
 
@@ -21,5 +24,14 @@ clients.inMemory()
 ````
 *   Setting Security for Token Aceess endpoints  
 
+## Resource Server Config Details 
+* Enable the server as Resource Server 
+* Make teh Resource Server aware of the Authorization Server ; here Resource Server will act as an OAuth Client in the eyes of the Authorization server. 
+
+````java
+security.oauth2.resource.token-info-uri=http://localhost:8080/oauth/check_token
+security.oauth2.client.client-id=resourceserver
+security.oauth2.client.client-secret=12345
+````
 
 ## What we do in this demo 
