@@ -37,5 +37,6 @@
 
 
 		<module>ss-c14-rs</module>
+		<module>ss-c16</module>
 	</modules>
 </project>
