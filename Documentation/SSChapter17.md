@@ -51,14 +51,31 @@ For Non-Opaque Token ( Like : JWT), Following approaches can be used for Token V
 
     *       
 ## What we do in this demo 
+OAuth client wants to get the __access token__ from the authorization Server. Depending on Grant types, the flow for acquisition of access tokns change. 
 
 ### __authorization_code__ grant types
 *   In this example _client2_ is registered in the Authorization Server to use this grant type. Refer to the table data in the screenshot.
 
 * For an overview of This grant type , refer to https://docs.pivotal.io/p-identity/1-14/grant-types.html 
 ![image](https://user-images.githubusercontent.com/8110582/139586817-6e649e1b-8994-4eb8-95d9-622900a03db8.png)
+    *   Step 2 : OAuth Client will issue a re-direct URL, to the _User_. The redirect URL contains the client ID. The redirect URL looks like 
+    `http://localhost:8080/oauth/authorize?response_type=code&client_id=client2&scope=read`
 
-*   
+        *   This URL cntains following important information,  
+        *   Identification of the client as __client2__
+        *   it is asking for an Authorization code ( not the access token)
+        *   _Note: This url is `/oauth/authorize?response_type=code`_ ; this URL is different from access token fetching URL [ refe to Step 5 ] 
+
+
+    *   Step 3 : The _User_ fires a call to authorization server using teh Redirect URL. Note that , it is not the client who fires the URL to the authorizatin server . Authorization server asks the user to enter the user credential ( john/12345)  directly and authorizes the client2 .
+    *  Step 4:   Authorization Server issues an __authorization code__ (for example: `xWy4Wx`) and redirects to client2's redirection URL(refer to the `Background` section in this page)
+    *   Step 5: client2 requests the AccessToken from the Authorization Server, by providing `AuthorizationCode`(received in previous step) and `Client secret` (maintained in the DB )
+
+
+        URL : `localhost:8080/oauth/token?grant_type=authorization_code&scope=read&code=xWy4Wx`
+        HTTP Method : `POST`
+        Authorization : `Basic auth / client 2 / pass: secret2`
+    and here the suthorization server issues teh access token.      
 
 ### __password__ grant types
 *   In this example _client1_ is registered in the Authorization Server to use this grant type. Refer to the table data screenshot
