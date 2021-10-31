@@ -108,6 +108,7 @@ OAuth client wants to get the __access token__ from the authorization Server. De
 
 __Accessing the Resource__
 The resource is accessed from the Resource server by providing the bearer token (Refer to Step 5 in previous section).
+![image](https://user-images.githubusercontent.com/8110582/139589856-2a87d1b6-48a3-42dd-9895-e33f461b2963.png)
 
 The resource server verifies the authenticity of the Token using the symmetric key.
 
