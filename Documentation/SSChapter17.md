@@ -15,8 +15,14 @@ For Non-Opaque Token ( Like : JWT), Following approaches can be used for Token V
     *   __Drawback__ : 
         *   Single key is shared between 2 servers, probability of misusing is doubled
         *   Authorization Server is supposed to __Sign__ the token with the Key, whereas Resource Server is supposed to __verify__ the token using the key. Because it is the same key, Resource server can __sign__ and issue the token which we can not stop , this is bad 
+	![image](https://user-images.githubusercontent.com/8110582/139588933-79892802-a811-40f0-a5c4-c39981e76760.png)
+	
+	In the picture you can see both servers know about the same key ( golden key : represents it is valuable , shared between multiple )
+
 *   non Symmetric Key 
     *   It is combination of Private  + Public key. Authorization server __Signs__ the token using __private Key__ and keeps it a secret. Resource server verifies the signature using the __public key__ 
+
+
 
 ## Backgorund
 *   We shall Implement an _AuthorizationServer_ with following Capability 
