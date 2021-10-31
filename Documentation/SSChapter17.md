@@ -75,7 +75,9 @@ OAuth client wants to get the __access token__ from the authorization Server. De
         URL : `localhost:8080/oauth/token?grant_type=authorization_code&scope=read&code=xWy4Wx`
         HTTP Method : `POST`
         Authorization : `Basic auth / client 2 / pass: secret2`
-    and here the suthorization server issues teh access token.      
+    and here the authorization server issues teh access token.  
+
+    _Note : We can see , if the Authorization code is received by an unwanted client, it will not be able to get the access token in step 5 as the Authrization Server knows from Step 4 , that the authorization code was issued for which client. This is where `authorization_code` is better than `implicit` grant type_     
 
 ### __password__ grant types
 *   In this example _client1_ is registered in the Authorization Server to use this grant type. Refer to the table data screenshot
