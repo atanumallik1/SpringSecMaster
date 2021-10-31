@@ -2,6 +2,21 @@
 
 ## Learn about Non Opaque JWT Token signed by Symmetric Key 
 
+OAuth Tokens can be Opaque or Non Opaque. This token is issues by the _Authorization Server_ and consumed and validated by the _Resource Server_.  
+
+For Opaque Tokens, the Resource server can validate the Token using
+*   Introsepction Endpoint (Exposed by Authorization server)
+*   Blackboarding approach  ( both Auth and Resource server use the same DB) 
+
+
+For Non-Opaque Token ( Like : JWT), Following approaches can be used for Token Validation 
+*   Symmetric Key : __[ Discussed in this example ]__
+    *   Authorization Server and Resource Server both knows a single key ; Authorization server singns the token with this key, Resource server verifies with the same key
+    *   __Drawback__ : 
+        *   Single key is shared between 2 servers, probability of misusing is doubled
+        *   Authorization Server is supposed to __Sign__ the token with the Key, whereas Resource Server is supposed to __verify__ the token using the key. Because it is the same key, Resource server can __sign__ and issue the token which we can not stop , this is bad 
+*   non Symmetric Key 
+    *   It is combination of Private  + Public key. Authorization server __Signs__ the token using __private Key__ and keeps it a secret. Resource server verifies the signature using the __public key__ 
 
 ## Backgorund
 *   We shall Implement an _AuthorizationServer_ with following Capability 
