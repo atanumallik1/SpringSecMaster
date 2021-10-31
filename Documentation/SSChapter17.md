@@ -51,3 +51,15 @@ For Non-Opaque Token ( Like : JWT), Following approaches can be used for Token V
 
     *       
 ## What we do in this demo 
+
+### __authorization_code__ grant types
+*   In this example _client2_ is registered in the Authorization Server to use this grant type. Refer to the table data in the screenshot.
+
+* For an overview of This grant type , refer to https://docs.pivotal.io/p-identity/1-14/grant-types.html 
+
+*   
+
+### __password__ grant types
+*   In this example _client1_ is registered in the Authorization Server to use this grant type. Refer to the table data screenshot
+
+
