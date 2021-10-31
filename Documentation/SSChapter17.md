@@ -76,6 +76,8 @@ OAuth client wants to get the __access token__ from the authorization Server. De
         HTTP Method : `POST`
         Authorization : `Basic auth / client 2 / pass: secret2`
     and here the authorization server issues teh access token.  
+    ![image](https://user-images.githubusercontent.com/8110582/139588236-8a0b4879-5e09-4200-b2d1-8e0529ac4991.png)
+
 
     _Note : We can see , if the Authorization code is received by an unwanted client, it will not be able to get the access token in step 5 as the Authrization Server knows from Step 4 , that the authorization code was issued for which client. This is where `authorization_code` is better than `implicit` grant type_     
 
