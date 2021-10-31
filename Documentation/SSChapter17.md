@@ -55,7 +55,25 @@ For Non-Opaque Token ( Like : JWT), Following approaches can be used for Token V
         }
         ````
 
-    *       
+*   We shall implement the following capabilities in the ResourceServer 
+    *   Configure the TokenStore and AccessTokenConverter. Configure the symmetric key
+
+    ````java
+    @Bean
+	public TokenStore tokenStore() {
+		return new JwtTokenStore(converter()) ;
+	}
+    @Bean
+	public  JwtAccessTokenConverter converter() {
+
+    	JwtAccessTokenConverter conv = new JwtAccessTokenConverter();
+		// Folloiwng key is the Private key by which Auth server signs the Token
+		conv.setSigningKey("secret");
+		return conv; 
+    }
+    ````
+    _Note: The signing key is configured in the resource server; you can note that same key is configured in both AuthenticationServer and resource server_
+
 ## What we do in this demo 
 OAuth client wants to get the __access token__ from the authorization Server. Depending on Grant types, the flow for acquisition of access tokns change. 
 
@@ -86,6 +104,13 @@ OAuth client wants to get the __access token__ from the authorization Server. De
 
 
     _Note : We can see , if the Authorization code is received by an unwanted client, it will not be able to get the access token in step 5 as the Authrization Server knows from Step 4 , that the authorization code was issued for which client. This is where `authorization_code` is better than `implicit` grant type_     
+
+
+__Accessing the Resource__
+The resource is accessed from the Resource server by providing the bearer token (Refer to Step 5 in previous section).
+
+The resource server verifies the authenticity of the Token using the symmetric key.
+
 
 ### __password__ grant types
 *   In this example _client1_ is registered in the Authorization Server to use this grant type. Refer to the table data screenshot
