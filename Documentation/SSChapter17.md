@@ -18,6 +18,12 @@
 	    }
         ````
     *   `JpaClientDetailsService` : We are creating JPA based Client details Service. The tables are created in My SQL.
+	DB Table Schema :
+    	![image](https://user-images.githubusercontent.com/8110582/139584705-facde856-249e-4161-a7dc-feece04edcb7.png)
+	
+	Table Content :
+	![image](https://user-images.githubusercontent.com/8110582/139584747-7d75c2f6-59ec-4a0d-bb7f-b8039ae551e5.png)
 
-    
+	
+
     *       
