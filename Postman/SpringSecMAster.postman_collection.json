@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "2154db54-3cd6-445f-894a-7c9557c68a0d",
+		"name": "SpringSecMAster",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ch19",
+			"item": [
+				{
+					"name": "Public Key Url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/oauth/token_key",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token_key"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Access Token ( Grant type: Password)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret1",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/oauth/token?grant_type=password&username=john&password=12345&scope=read",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								},
+								{
+									"key": "username",
+									"value": "john"
+								},
+								{
+									"key": "password",
+									"value": "12345"
+								},
+								{
+									"key": "scope",
+									"value": "read"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resource",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzYyNTI2NDgsInVzZXJfbmFtZSI6ImpvaG4iLCJhdXRob3JpdGllcyI6WyJyZWFkIl0sImp0aSI6ImM0ZGJkODQ5LWU4YjEtNDFlYi05YjFmLWI0ZjlmMmFiYWUxZCIsImNsaWVudF9pZCI6ImNsaWVudDEiLCJzY29wZSI6WyJyZWFkIl19.Rcc-FR2oxe1wvnboErEJMmu_GvjHF_otKxIy6NVybSUhPw_vLeyrdNh1lwsU7fVfcmE-G0rTYwKQQFtttTc_R64bNInlMgNbO3EzgNZGJ8N-9xclyC7_qy9xdzXXtntaaG6YxRdmbHRp-pNq2wLgcVFFjmskSdbi522dEGA_R0nrJf_2sPb7aWo-lOFOyp_A55H56-XqrvRLDys416bAfV9ANeiLweKTEhFs7yrwNSuGgZO7L1dEcM_z5xSXYKGnwN0KjObHskbC7Cbgq3C6PL89SMraWi9solgfXP10PQOC1it5J0RRJxrEluD8o_3cFNz8c-K6rp9jm00gcGa9xw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hello",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hello"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

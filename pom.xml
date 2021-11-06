@@ -43,5 +43,6 @@
 		<module>ss-c18-as</module>
 		<module>ss-c18-rs</module>
 		<module>ss-c19-as</module>
+		<module>ss-c19-rs</module>
 	</modules>
 </project>
