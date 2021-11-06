@@ -12,4 +12,7 @@
 	*   The _ResourceServer_ knows the Public Key ; like we have done in Chapter 18. In this case a Physical Key file is shared with the Resource Server. The Problem with this approach is , if Authorization Server changes key , all resource servers nees to update the public key. The benefit is , the Resource Servers has all necessary information to verify the signature  
 	* The Second approach is, the Authorization Server publishes an endpoint for the Public Keys. The Resource Server can call this end point to get the Public key and then it can use the key t veify the the Access Token's correctness. The Pros/Cons are exactly the opposite of Approach 1.
 
+![image](https://user-images.githubusercontent.com/8110582/140611770-7925c81f-f1d4-4884-b7e1-085173782dd1.png)
+
+
 ## What we do in this demo 
