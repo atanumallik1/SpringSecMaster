@@ -16,3 +16,77 @@
 
 
 ## What we do in this demo 
+* We have Enabled an authorization Server. This  authorization Server is aware of the folloiwng settings 
+	*	Via `WebSecurityConfigurerAdapter`
+		*	Users : one enduser `john`
+		*	PasswordEncoder
+		*	`AutheticationManager` bean
+	*	Via `AuthorizationServerConfigurerAdapter`
+		* possible oAuth cients  : we have configured 2 clients , `client1` we created for postman testing , `resourceserverclient` we created for communication by Resource Server [ ResourceServer also needs to be registered to AuthorizationServer as a client]
+		````java
+		@Override
+		public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+			clients.inMemory().withClient("client1").secret(passwordEncoder.encode("secret1")).authorities("read")
+				.authorizedGrantTypes("password").and()
+				// this is special client does not need authorities
+				.withClient("resourceserverclient").secret("rssecret") ;
+
+		}
+		````
+		* Secured the Token Key Endpoint . Following endpoint is the token key endpoint. Resource Server calls this endpoint exposed from Authorization Servr to access the public key to verify the Access Token.
+
+		`localhost:8080/oauth/token_key`
+		````
+			@Override
+			public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+				security.tokenKeyAccess("isAuthenticated()") ;  // isAuthenticated(), permitAll()
+			}
+		````
+		* Enabled the `jwtTokenStore`
+		````
+			@Bean
+			public TokenStore tokenStore() {
+				return new JwtTokenStore(jwtTokenStoreConv());
+			}
+
+			@Bean
+			public JwtAccessTokenConverter jwtTokenStoreConv() {
+
+				JwtAccessTokenConverter jat = new JwtAccessTokenConverter();
+				// Configuring the private key to sign the token
+				KeyStoreKeyFactory keyFactory = new KeyStoreKeyFactory(new ClassPathResource("ssia.jks"),
+						"ssia123".toCharArray());
+				jat.setKeyPair(keyFactory.getKeyPair("ssia"));
+
+				return jat;
+			}		
+		````
+
+
+* We have Enabled a Resource Server. This  Resource Server is aware of the folloiwng settings 
+	*	`EnableResourceServer` annotation 
+	````java
+		@EnableResourceServer
+		@Configuration
+		public class ResourceServerConfig  {
+	
+		}
+	````
+	*	Passing client keys to access the `AuthorizationServer`, using the properties  
+	````
+	server.port=9090
+	security.oauth2.resource.jwt.key-uri=http://localhost:8080/oauth/token_key
+	security.oauth2.client.client-id=resourceserverclient
+	security.oauth2.client.client-secret=rssecret
+	````
+
+
+
+##	Test
+*	Auth Server Endpoints 
+	*	Token Key 
+		`GET localhost:8080/oauth/token_key`
+	*	Access Token
+		`POST  localhost:8080/oauth/token?grant_type=password&username=john&password=12345&scope=read    Credential: client1/secret1`
+*	Resource Server Endpoints 
+	`localhost:9090/hello` with bearer token
