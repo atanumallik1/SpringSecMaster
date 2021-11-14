@@ -16,6 +16,7 @@ we have mapped user attribute in the Role-mapper Uder setting  : client Scope --
 This will bring a PRoperty called `user-name` in the JWT token.
 ![image](https://user-images.githubusercontent.com/8110582/141687312-baf7cca0-b8c8-426d-b696-684859e8e355.png)
 
+We have also added another mapper to indicate the audience and authorities ( not working for me) of this token. 
 
 ## Backgorund
 
